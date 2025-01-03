@@ -1,4 +1,4 @@
-# actix-angular-project-template
+# actix-sea-pg-ng-project-template
 ![GitHub License](https://img.shields.io/github/license/stav121/actix-angular-project-template?style=for-the-badge&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/stav121/actix-angular-project-template?style=for-the-badge&color=blue)
 ![GitHub forks](https://img.shields.io/github/forks/stav121/actix-angular-project-template?style=for-the-badge&color=teal)
@@ -46,7 +46,7 @@ From there, you can register a new user and login to preview the security featur
         </tr>
         <tr>
             <th align="start">SQL Toolkit</th>
-            <td>SQLx</td>
+            <td>Sea-ORM</td>
         </tr>
         <tr>
             <th align="start">Backend Framework</th>
@@ -54,7 +54,7 @@ From there, you can register a new user and login to preview the security featur
         </tr>
         <tr>
             <th align="start">Frontend Framework</th>
-            <td>Angular (with PrimeNG)</td>
+            <td>Angular v19+ (with PrimeNG v19+)</td>
         </tr>
         <tr>
             <th align="start">Secrurity</th>
@@ -121,5 +121,7 @@ If you like this project and wish to contribute, feel free to make a Pull Reques
 <hr>
 
 ### Author
+
+Kuo, ChaoYi ([Kuo.ChaoYi](https://github.com/kuochaoyi))
 
 Stavros Grigoriou ([stav121](https://github.com/stav121))
