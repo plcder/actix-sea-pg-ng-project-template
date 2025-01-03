@@ -10,16 +10,16 @@ use std::future::ready;
 #[doc = "Token claims supported for the JWT"]
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
 pub struct TokenClaims {
-    pub sub:  String,
-    pub iat:  usize,
-    pub exp:  usize,
+    pub sub: String,
+    pub iat: usize,
+    pub exp: usize,
     pub role: String,
 }
 
 #[doc = "Error response"]
 #[derive(Debug, serde::Serialize)]
 struct ErrorResponse {
-    status:  String,
+    status: String,
     message: String,
 }
 
@@ -32,7 +32,7 @@ impl fmt::Display for ErrorResponse {
 #[derive(Debug)]
 pub struct AuthDetails {
     pub user_id: i64,
-    pub role:    String,
+    pub role: String,
 }
 
 impl FromRequest for AuthDetails {
@@ -55,7 +55,7 @@ impl FromRequest for AuthDetails {
 
         if token.is_none() {
             return ready(Err(ErrorUnauthorized(ErrorResponse {
-                status:  "fail".to_string(),
+                status: "fail".to_string(),
                 message: "No token provided".to_string(),
             })));
         }
@@ -68,7 +68,7 @@ impl FromRequest for AuthDetails {
             Ok(c) => c.claims,
             Err(_) => {
                 return ready(Err(ErrorUnauthorized(ErrorResponse {
-                    status:  "fail".to_string(),
+                    status: "fail".to_string(),
                     message: "Invalid token".to_string(),
                 })));
             }

@@ -1,4 +1,4 @@
-FROM rust:1.75.0 AS builder
+FROM rust:alpine AS builder
 MAINTAINER Stavros Grigoriou <unix121@protonmail.com>
 
 WORKDIR /app

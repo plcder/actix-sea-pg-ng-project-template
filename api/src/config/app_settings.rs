@@ -5,36 +5,36 @@ use sqlx::postgres::{PgConnectOptions, PgSslMode};
 #[derive(serde::Deserialize, Clone)]
 pub struct Settings {
     pub application: AppSettings,
-    pub jwt:         JwtSettings,
-    pub database:    DatabaseSettings,
+    pub jwt: JwtSettings,
+    pub database: DatabaseSettings,
 }
 
 #[doc = "Settings for application (host, port, cors)"]
 #[derive(serde::Deserialize, Clone)]
 pub struct AppSettings {
-    pub host:          String,
-    pub port:          u16,
+    pub host: String,
+    pub port: u16,
     pub cors_location: String,
-    pub api_prefix:    String,
+    pub api_prefix: String,
 }
 
 #[doc = "Settings for JWT security"]
 #[derive(serde::Deserialize, Clone)]
 pub struct JwtSettings {
-    pub secret:        Secret<String>,
-    pub expires_in:    String,
-    pub max_age:       i64,
+    pub secret: Secret<String>,
+    pub expires_in: String,
+    pub max_age: i64,
     pub cookie_domain: String,
-    pub cookie_name:   String,
+    pub cookie_name: String,
 }
 
 #[doc = "Configuration for the database"]
 #[derive(serde::Deserialize, Clone)]
 pub struct DatabaseSettings {
-    pub username:      Secret<String>,
-    pub password:      Secret<String>,
-    pub port:          u16,
-    pub host:          String,
+    pub username: Secret<String>,
+    pub password: Secret<String>,
+    pub port: u16,
+    pub host: String,
     pub database_name: String,
 }
 

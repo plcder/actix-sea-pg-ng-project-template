@@ -12,7 +12,7 @@ use std::net::TcpListener;
 
 #[doc = "Application state"]
 pub struct AppState {
-    pub db:       Pool<Postgres>,
+    pub db: Pool<Postgres>,
     pub settings: Settings,
 }
 
@@ -61,7 +61,7 @@ pub async fn run(
         // Configure the application
         App::new()
             .app_data(web::Data::new(AppState {
-                db:       pg_pool.clone(),
+                db: pg_pool.clone(),
                 settings: settings.clone(),
             }))
             .configure(|c| get_config(c, &settings.application))
