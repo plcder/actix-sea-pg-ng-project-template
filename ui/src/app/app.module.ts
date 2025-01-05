@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ToastModule} from "primeng/toast";
 import {MessageService} from "primeng/api";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import {InputGroupModule} from "primeng/inputgroup";
@@ -45,61 +45,55 @@ function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    InputTextModule,
-    InputGroupModule,
-    TooltipModule,
-    ButtonModule,
-    RippleModule,
-    InputGroupAddonModule,
-    HttpClientModule,
-    AvatarModule,
-    TieredMenuModule,
-    ToolbarModule,
-    BrowserAnimationsModule,
-    TableModule,
-    DividerModule,
-    CheckboxModule,
-    ToastModule,
-    AccordionModule,
-    DialogModule,
-    DropdownModule,
-    PanelModule,
-    MessageModule,
-    MessagesModule,
-    TabViewModule,
-    ChipModule,
-    SkeletonModule,
-    BadgeModule,
-    FileUploadModule,
-    InputSwitchModule,
-    CardModule,
-    PasswordModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    ChartModule,
-    MenubarComponent,
-  ],
-  providers: [
-    httpInterceptorProviders,
-    MessageService,
-    AuthGuard,
-    AdminGuard
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        InputTextModule,
+        InputGroupModule,
+        TooltipModule,
+        ButtonModule,
+        RippleModule,
+        InputGroupAddonModule,
+        AvatarModule,
+        TieredMenuModule,
+        ToolbarModule,
+        BrowserAnimationsModule,
+        TableModule,
+        DividerModule,
+        CheckboxModule,
+        ToastModule,
+        AccordionModule,
+        DialogModule,
+        DropdownModule,
+        PanelModule,
+        MessageModule,
+        MessagesModule,
+        TabViewModule,
+        ChipModule,
+        SkeletonModule,
+        BadgeModule,
+        FileUploadModule,
+        InputSwitchModule,
+        CardModule,
+        PasswordModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        ChartModule,
+        MenubarComponent], providers: [
+        httpInterceptorProviders,
+        MessageService,
+        AuthGuard,
+        AdminGuard,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }
